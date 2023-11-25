@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>ConfigManager Documentation</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+
+    <!-- [name] -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sr.Caveira" />
+    <meta name="description" content="A Library designed to assist with the management of Configuration Files." />
+	<meta name="copyright" content="© Sr.Caveira 2023" />
+	<meta name="generator" content="Visual Studio Code" />
+	<meta name="rating" content="general" />
+
+    <!-- link -->
+    <link
+        rel="icon" href="./assets/images/configmanager-icon.png"
+    />
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css"
+    />
+    <link
+		rel="stylesheet"
+		href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css"
+	/>
+
+    <!-- script -->
+    <script
+		rel="preconnect"
+		src="https://kit.fontawesome.com/76c1498e5f.js"
+		crossorigin="anonymous">
+	</script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+    </script>
+
+    <script
+        src="https://unpkg.com/@popperjs/core@2">
+    </script>
+
+    <script
+        src="https://unpkg.com/tippy.js@6">
+    </script>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <h1><i class="fa-solid fa-gear"></i>&nbsp;ConfigManager Documentation (v1.0)</h1>
+    </header>
+
+    <!-- nav -->
+    <nav>
+        <ul>
+            <li><a href="#create">Create</a></li>
+            <li><a href="#update">Update</a></li>
+            <li><a href="#add">Add</a></li>
+            <li><a href="#remove">Remove</a></li>
+            <li><a href="#get">Get</a></li>
+            <li style="float: right"><a href="#"><i class="fa-brands fa-github"></i>&nbsp;GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- main -->
+    <main>
+        <!-- sections -->
+        <!-- [create] -->
+        <section id="create">
+            <h2><code>Bool</code>&nbsp;&nbsp;::CM_ConfigManager.Create()</h2>
+
+            <p><i class="fa-solid fa-circle-info"></i>&nbsp;Creates a new configuration file with the specified values.</p>
+
+            <h3>Parameters:</h3>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameter</th>
+                    <th>Information</th>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileFolder</td>
+                    <td>The folder name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileName</td>
+                    <td>The file name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileType</td>
+                    <td>The type of the file (KeyValue, List, CVar)</td>
+                </tr>
+
+                <tr>
+                    <td>any&nbsp;<i onmouseover="tippy(this, { content: 'string | integer | float | bool | table | array', placement: 'top' });" class="fa-solid fa-circle-question"></i></td>
+                    <td>FileValue</td>
+                    <td>The value to be added in the file</td>
+                </tr>
+            </table>
+
+            <h3>Returns:</h3>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>True</strong> if the file was created successfully, <strong>False</strong> otherwise.</p>
+
+            <h3>Usage Examples:</h3>
+
+            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Create</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_settings"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-table">{</span> <span class="squirrel-table-key">IsEnabled</span> <span class="squirrel-equal-assignment">=</span> <span class="squirrel-bool">true</span> <span class="squirrel-table">}</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Create</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-array">[</span> <span class="squirrel-string">"Player1"</span>, <span class="squirrel-string">"Player2"</span> <span class="squirrel-array">]</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Create</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-bool">true</span> <span class="squirrel-global-function">)</span>;</code></pre>
+        </section>
+
+        <!-- [update] -->
+        <section id="update">
+            <h2><code>Bool</code>&nbsp;&nbsp;::CM_ConfigManager.Update()</h2>
+
+            <p><i class="fa-solid fa-circle-info"></i>&nbsp;Updates an existing configuration file with the specified values.</p>
+
+            <h3>Parameters:</h3>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameter</th>
+                    <th>Information</th>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileFolder</td>
+                    <td>The folder name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileName</td>
+                    <td>The file name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileType</td>
+                    <td>The type of the file (KeyValue, List, CVar)</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileOldValue</td>
+                    <td>The old value to be searched into the file</td>
+                </tr>
+
+                <tr>
+                    <td>any&nbsp;<i onmouseover="tippy(this, { content: 'string | integer | float | bool', placement: 'top' });" class="fa-solid fa-circle-question"></i></td>
+                    <td>FileNewValue</td>
+                    <td>The new value to replace the old value into the file</td>
+                </tr>
+            </table>
+
+            <h3>Returns:</h3>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Returns <strong>True</strong> if the data was updated successfully, <strong>False</strong> otherwise.</p>
+
+            <h3>Usage Examples:</h3>
+
+            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method"></span>.Update<span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-string">"IsAdminOnly"</span>, <span class="squirrel-bool">true</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method"></span>.Update<span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-string">"Player1"</span>, <span class="squirrel-string">"PlayerOne"</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method"></span>.Update<span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-string">""</span>, <span class="squirrel-bool">true</span> <span class="squirrel-global-function">)</span>;</code></pre>
+        </section>
+
+        <!-- [add] -->
+        <section id="add">
+            <h2><code>Bool</code>&nbsp;&nbsp;::CM_ConfigManager.Add()</h2>
+
+            <p><i class="fa-solid fa-circle-info"></i>&nbsp;Adds new data to a configuration file.</p>
+
+            <h3>Parameters:</h3>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameter</th>
+                    <th>Information</th>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileFolder</td>
+                    <td>The folder name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileName</td>
+                    <td>The file name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileType</td>
+                    <td>The type of the file (KeyValue, List, CVar)</td>
+                </tr>
+
+                <tr>
+                    <td>any&nbsp;<i onmouseover="tippy(this, { content: 'string | integer | float | bool | table | array', placement: 'top' });" class="fa-solid fa-circle-question"></i></td>
+                    <td>FileValue</td>
+                    <td>The value to be added to the file</td>
+                </tr>
+            </table>
+
+            <h3>Returns:</h3>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Returns <strong>True</strong> if the data was added successfully, <strong>False</strong> otherwise.</p>
+
+            <h3>Usage Examples:</h3>
+
+            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Add</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-table">{</span> <span class="squirrel-table-key">IsAdminOnly</span> <span class="squirrel-equal-assignment">=</span> <span class="squirrel-bool">true</span> <span class="squirrel-table">}</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span></span><span class="squirrel-method">.Add</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-array">[</span> <span class="squirrel-string">"Player1"</span>, <span class="squirrel-string">"PlayerOne"</span> <span class="squirrel-array">]</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Add</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-bool">true</span> <span class="squirrel-global-function">)</span>;</code></pre>
+        </section>
+
+        <!-- [remove] -->
+        <section id="remove">
+            <h2><code>Bool</code>&nbsp;&nbsp;::CM_ConfigManager.Remove()</h2>
+
+            <p><i class="fa-solid fa-circle-info"></i>&nbsp;Removes data from a configuration file.</p>
+
+            <h3>Parameters:</h3>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameter</th>
+                    <th>Information</th>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileFolder</td>
+                    <td>The folder name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileName</td>
+                    <td>The file name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileType</td>
+                    <td>The type of the file (KeyValue, List, CVar)</td>
+                </tr>
+
+                <tr>
+                    <td>any&nbsp;<i onmouseover="tippy(this, { content: 'string | table | array', placement: 'top' });" class="fa-solid fa-circle-question"></i></td>
+                    <td>FileValue</td>
+                    <td>The value to be removed from the file</td>
+                </tr>
+            </table>
+
+            <h3>Returns:</h3>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Returns <strong>True</strong> if the data was removed successfully, <strong>False</strong> otherwise.</p>
+            <h3>Usage Examples:</h3>
+
+            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Remove</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-table">{</span> <span class="squirrel-table-key">IsAdminOnly</span> <span class="squirrel-equal-assignment">=</span> <span class="squirrel-bool">true</span> <span class="squirrel-table">}</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span></span><span class="squirrel-method">.Remove</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-array">[</span> <span class="squirrel-string">"Player1"</span>, <span class="squirrel-string">"PlayerOne"</span> <span class="squirrel-array">]</span> <span class="squirrel-global-function">)</span>;
+&emsp;&emsp;&emsp;<span class="squirrel-global-function">::CM_ConfigManager</span><span class="squirrel-method">.Remove</span><span class="squirrel-global-function">( </span><span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-string">""</span> <span class="squirrel-global-function">)</span>;</code></code></pre>
+        </section>
+
+        <!-- [get] -->
+        <section id="get">
+            <h2><code>Bool|Table</code>&nbsp;&nbsp;::CM_ConfigManager.Get()</h2>
+
+            <p><i class="fa-solid fa-circle-info"></i>&nbsp;Gets data from a configuration file.</p>
+
+            <h3>Parameters:</h3>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameter</th>
+                    <th>Information</th>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileFolder</td>
+                    <td>The folder name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileName</td>
+                    <td>The file name</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileType</td>
+                    <td>The type of the file (KeyValue, List, CVar)</td>
+                </tr>
+
+                <tr>
+                    <td>string</td>
+                    <td>FileValue</td>
+                    <td>The value to be retrieved from the file</td>
+                </tr>
+            </table>
+
+            <h3>Returns:</h3>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Returns a <strong>Table&nbsp;<i onmouseover="tippy(this, { content: 'Table Keys: Key | Value | ValueType', placement: 'top' });" class="fa-solid fa-circle-question"></i></strong> with the data if successful, <strong>False</strong> otherwise.</p>
+
+            <h3>Usage Examples:</h3>
+
+            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsAdminOnly </span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-string">"IsAdminOnly"</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> // IsAdminOnly.Key | IsAdminOnly.Value | IsAdminOnly.ValueType</span>
+&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">PlayerOne &nbsp;&nbsp;</span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-string">"Player1"</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// PlayerOne.Value | PlayerOne.ValueType</span>
+&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsEnabled &nbsp;&nbsp;</span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager</span>", <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-string"><span class="squirrel-string">""</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// IsEnabled.Value | IsEnabled.ValueType</span></code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <a href="https://steamcommunity.com/id/srcaveira/">Sr.Caveira</a>, 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>
