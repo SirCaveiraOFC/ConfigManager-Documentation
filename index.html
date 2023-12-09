@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Sr.Caveira" />
     <meta name="description" content="A Library designed to assist with the management of Configuration Files." />
-    <meta name="copyright" content="© Sr.Caveira 2023" />
-    <meta name="generator" content="Visual Studio Code" />
-    <meta name="rating" content="general" />
+	<meta name="copyright" content="© Sr.Caveira 2023" />
+	<meta name="generator" content="Visual Studio Code" />
+	<meta name="rating" content="general" />
 
     <!-- link -->
     <link
@@ -24,16 +24,16 @@
         href="./assets/css/style.css"
     />
     <link
-        rel="stylesheet"
-        href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css"
-    />
+		rel="stylesheet"
+		href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css"
+	/>
 
     <!-- script -->
     <script
-        rel="preconnect"
-        src="https://kit.fontawesome.com/76c1498e5f.js"
-        crossorigin="anonymous">
-    </script>
+		rel="preconnect"
+		src="https://kit.fontawesome.com/76c1498e5f.js"
+		crossorigin="anonymous">
+	</script>
 
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -54,7 +54,7 @@
 <body>
     <!-- header -->
     <header>
-        <h1><i class="fa-solid fa-gear"></i>&nbsp;ConfigManager Documentation (v1.0)</h1>
+        <h1><i class="fa-solid fa-gear"></i>&nbsp;ConfigManager Documentation (v1.0.1)</h1>
     </header>
 
     <!-- nav -->
@@ -315,7 +315,7 @@
                 </tr>
 
                 <tr>
-                    <td>string</td>
+                    <td>any&nbsp;<i onmouseover="tippy(this, { content: 'string | table | array', placement: 'top' });" class="fa-solid fa-circle-question"></i></td>
                     <td>FileValue</td>
                     <td>The value to be retrieved from the file</td>
                 </tr>
@@ -327,9 +327,9 @@
 
             <h3>Usage Examples:</h3>
 
-            <pre><code>&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsAdminOnly </span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-string">"IsAdminOnly"</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> // IsAdminOnly.Key | IsAdminOnly.Value | IsAdminOnly.ValueType</span>
+            <pre><code><span class="squirrel-bars-comment">&emsp;&emsp;&emsp;// Unique Values</span><br />&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsAdminOnly </span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-string">"IsAdminOnly"</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> // IsAdminOnly.Key | IsAdminOnly.Value | IsAdminOnly.ValueType</span>
 &emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">PlayerOne &nbsp;&nbsp;</span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-string">"Player1"</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// PlayerOne.Value | PlayerOne.ValueType</span>
-&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsEnabled &nbsp;&nbsp;</span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager</span>", <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-string"><span class="squirrel-string">""</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// IsEnabled.Value | IsEnabled.ValueType</span></code></pre>
+&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">IsEnabled &nbsp;&nbsp;</span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager</span>", <span class="squirrel-string">"config_manager_enabled"</span>, <span class="squirrel-string">"CVar"</span>, <span class="squirrel-string"><span class="squirrel-string">""</span></span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// IsEnabled.Value | IsEnabled.ValueType</span><br /><br /><span class="squirrel-bars-comment">&emsp;&emsp;&emsp;// Multiple Values</span><br />&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">ConfigsTable </span><span class="squirrel-equal-assignment">= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_configs"</span>, <span class="squirrel-string">"KeyValue"</span>, <span class="squirrel-table">{}</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment"> // ConfigsTable.Value (returns a table) | ConfigsTable.ValueType (table)</span><br />&emsp;&emsp;&emsp;<span class="squirrel-local-variable">local </span><span class="squirrel-local-variable-name">PlayersList </span><span class="squirrel-equal-assignment">&emsp;= </span><span class="squirrel-global-function">::CM_ConfigManager</span>.Get</span><span class="squirrel-global-function">(</span> <span class="squirrel-string">"cm_config_manager"</span>, <span class="squirrel-string">"config_manager_players"</span>, <span class="squirrel-string">"List"</span>, <span class="squirrel-array">[]</span> <span class="squirrel-global-function">)</span>;<span class="squirrel-bars-comment">&emsp;&emsp;&emsp;&emsp;&emsp;// PlayersList.Value (returns an array) | PlayersList.ValueType (array)</span></code></pre>
         </section>
     </main>
 
